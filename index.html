@@ -58,7 +58,7 @@
             background-color: #000;
         }
 
-        .responsive-image {
+        .jovero {
             width: 100vw;
             height: 100vh;
             object-fit: cover;
@@ -66,21 +66,21 @@
         }
 
         /* Default: Show mobile image */
-        .desktop-image {
+        .jovero[src="1366-768.jpg"] {
             display: none;
         }
 
-        .mobile-image {
+        .jovero[src="844-390.jpg"] {
             display: block;
         }
 
         /* Media query for laptop/desktop screens (768px and above) */
         @media screen and (min-width: 768px) {
-            .desktop-image {
+            .jovero[src="1366-768.jpg"] {
                 display: block;
             }
             
-            .mobile-image {
+            .jovero[src="844-390.jpg"] {
                 display: none;
             }
         }
