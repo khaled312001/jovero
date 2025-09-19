@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Full Screen Image</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .fullscreen-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+        }
+
+        .responsive-image {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Default: Show mobile image */
+        .desktop-image {
+            display: none;
+        }
+
+        .mobile-image {
+            display: block;
+        }
+
+        /* Media query for laptop/desktop screens (768px and above) */
+        @media screen and (min-width: 768px) {
+            .desktop-image {
+                display: block;
+            }
+            
+            .mobile-image {
+                display: none;
+            }
+        }
+
+        /* Alternative approach using background images for better full-screen coverage */
+        .bg-image-container {
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: none;
+        }
+
+        /* Uncomment these if you prefer background image approach */
+        /*
+        .bg-mobile {
+            background-image: url('844-390.jpg');
+        }
+
+        .bg-desktop {
+            background-image: url('1366-768.jpg');
+        }
+
+        @media screen and (min-width: 768px) {
+            .bg-mobile { display: none; }
+            .bg-desktop { display: block; }
+        }
+
+        @media screen and (max-width: 767px) {
+            .bg-mobile { display: block; }
+            .bg-desktop { display: none; }
+        }
+        */
+    </style>
+</head>
+<body>
+    <!-- Method 1: Using img tags with object-fit (maintains aspect ratio) -->
+    <div class="fullscreen-container">
+        <!-- Desktop/Laptop image -->
+        <img src="1366-768.jpg" alt="Desktop Image" class="responsive-image desktop-image">
+        
+        <!-- Mobile image -->
+        <img src="844-390.jpg" alt="Mobile Image" class="responsive-image mobile-image">
+    </div>
+
+    <!-- Method 2: Using background images (uncomment if preferred) -->
+    <!--
+    <div class="bg-image-container bg-desktop"></div>
+    <div class="bg-image-container bg-mobile"></div>
+    -->
+
+    <script>
+        // Optional: Add touch/swipe functionality or other interactive features
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Responsive image page loaded');
+            
+            // Log current viewport size for debugging
+            console.log(`Viewport: ${window.innerWidth}x${window.innerHeight}`);
+            
+            // Update on resize
+            window.addEventListener('resize', function() {
+                console.log(`Viewport resized: ${window.innerWidth}x${window.innerHeight}`);
+            });
+        });
+    </script>
+</body>
+</html>
